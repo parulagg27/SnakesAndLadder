@@ -1,0 +1,7 @@
+defaultBoard:
+  numberOfPlayers: 2
+  boardSize: 10
+  numberOfSnakes: 5
+  numberOfLadders: 5
+  numberOfDice: 1
+  movementStrategy: 'SUM'
