@@ -42,8 +42,14 @@ public class Game {
                 }
                 if (board.isSnakeHead(targetPosition)) {
                     targetPosition = board.getSnakeTail(targetPosition);
+                    System.out.println(player.getName() + " rolled a " + diceValue + " and " +
+                            " got bitten by snake at " + player.getPosition() + " and moved from " +
+                            player.getPosition() + " to " + targetPosition);
                 } else if (board.isLadderBottom(targetPosition)) {
                     targetPosition = board.getLadderTop(targetPosition);
+                    System.out.println(player.getName() + " rolled a " + diceValue + " and "
+                            + " climbed ladder at " + player.getPosition() + " and moved from " +
+                            player.getPosition() + " to " + targetPosition);
                 }
                 for (var otherPlayer : players) {
                     if (otherPlayer != player && otherPlayer.getPosition() == targetPosition) {
@@ -51,6 +57,8 @@ public class Game {
                     }
                 }
 
+                System.out.println(player.getName() + " rolled a " + diceValue + " and moved from " +
+                        player.getPosition() + " to " + targetPosition);
                 player.movePlayer(targetPosition);
                 if (targetPosition == board.getSize()) {
                     player.setWinner(true);

@@ -4,30 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c60fc20-3a84-408b-870b-f83774c6ddda" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/domain/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/domain/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/domain/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/game/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/parser/InputReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/snakesAndLadder/design/domain/BoardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/snakesAndLadder/design/domain/DiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/snakesAndLadder/design/domain/PlayerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/snakesAndLadder/design/game/GameTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/input.txt" afterDir="false" />
+    <list default="true" id="2c60fc20-3a84-408b-870b-f83774c6ddda" name="Changes" comment="Add solution to run snake ladder game till one user succeeds">
+      <change beforePath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snakesAndLadder/design/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,12 +217,25 @@
       <option name="presentableId" value="Default" />
       <updated>1714412946803</updated>
       <workItem from="1714412948024" duration="10104000" />
-      <workItem from="1714424502492" duration="2113000" />
+      <workItem from="1714424502492" duration="2417000" />
     </task>
+    <task id="LOCAL-00001" summary="Add solution to run snake ladder game till one user succeeds">
+      <option name="closed" value="true" />
+      <created>1714426638376</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714426638376</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add solution to run snake ladder game till one user succeeds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add solution to run snake ladder game till one user succeeds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
