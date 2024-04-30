@@ -1,6 +1,7 @@
 ## TODOs:
 - Override default game configs as per input.txt. Initialise game after that.
 - Add logic to override dice value and give a value manually
+- Add behaviour specific tests = if snake bike, if ladder climb, if existing player at target position
 - Add logic to have different strategies invoked for player movement as per number of dice rolled and values.
 
 ### Sample Execution output: [GameTest.java]
