@@ -4,6 +4,8 @@
 - Add behaviour specific tests = if snake bike, if ladder climb, if existing player at target position
 - Add logic to have different strategies invoked for player movement as per number of dice rolled and values.
 
+------
+
 ### Sample Execution output: [GameTest.java]
 
 - Gaurav rolled a 5 and moved from 1 to 6                                              
