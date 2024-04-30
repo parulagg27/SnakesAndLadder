@@ -4,7 +4,7 @@ import lombok.Getter;
 import snakesAndLadder.design.domain.Board;
 import snakesAndLadder.design.domain.Dice;
 import snakesAndLadder.design.domain.Player;
-import snakesAndLadder.design.parser.InputReader;
+import snakesAndLadder.design.parser.InputParser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class Game {
     }
 
     public void loadGame(String filename) throws IOException {
-        var reader = InputReader.readInput(filename);
+        var reader = InputParser.readInput(filename);
         readSnakes(reader);
         readLadders(reader);
         addPlayersWithStartPosition(reader);
@@ -40,32 +40,59 @@ public class Game {
                 if (targetPosition > board.getSize()) {
                     continue;
                 }
-                if (board.isSnakeHead(targetPosition)) {
-                    targetPosition = board.getSnakeTail(targetPosition);
-                    System.out.println(player.getName() + " rolled a " + diceValue + " and " +
-                            " got bitten by snake at " + player.getPosition() + " and moved from " +
-                            player.getPosition() + " to " + targetPosition);
-                } else if (board.isLadderBottom(targetPosition)) {
-                    targetPosition = board.getLadderTop(targetPosition);
-                    System.out.println(player.getName() + " rolled a " + diceValue + " and "
-                            + " climbed ladder at " + player.getPosition() + " and moved from " +
-                            player.getPosition() + " to " + targetPosition);
-                }
-                for (var otherPlayer : players) {
-                    if (otherPlayer != player && otherPlayer.getPosition() == targetPosition) {
-                        otherPlayer.setPosition(1);
-                    }
-                }
-
-                System.out.println(player.getName() + " rolled a " + diceValue + " and moved from " +
-                        player.getPosition() + " to " + targetPosition);
-                player.movePlayer(targetPosition);
+                targetPosition = movePlayerBasedOnSnakesLaddersAndExistingPlayer(player, targetPosition, diceValue);
                 if (targetPosition == board.getSize()) {
                     player.setWinner(true);
                     return;
                 }
             }
         }
+    }
+
+    private int movePlayerBasedOnSnakesLaddersAndExistingPlayer(Player player, int targetPosition, int diceValue) {
+        if (board.isSnakeHead(targetPosition)) {
+            targetPosition = getPositionAfterSnakeBite(player, targetPosition, diceValue);
+            checkAndMoveExistingPlayerFromTargetPositionTo1(player, targetPosition);
+            player.movePlayer(targetPosition);
+        } else if (board.isLadderBottom(targetPosition)) {
+            targetPosition = getPositionAfterClimb(player, targetPosition, diceValue);
+            checkAndMoveExistingPlayerFromTargetPositionTo1(player, targetPosition);
+            player.movePlayer(targetPosition);
+        } else {
+            System.out.println(player.getName() + " rolled a " + diceValue + " and moved from " +
+                    player.getPosition() + " to " + targetPosition);
+            checkAndMoveExistingPlayerFromTargetPositionTo1(player, targetPosition);
+            player.movePlayer(targetPosition);
+        }
+        return targetPosition;
+    }
+
+    private void checkAndMoveExistingPlayerFromTargetPositionTo1(Player player, int targetPosition) {
+        for (var otherPlayer : players) {
+            if (isOtherPlayerPresentAtTargetPosition(player, targetPosition, otherPlayer)) {
+                otherPlayer.setPosition(1);
+            }
+        }
+    }
+
+    private static boolean isOtherPlayerPresentAtTargetPosition(Player player, int targetPosition, Player otherPlayer) {
+        return otherPlayer != player && otherPlayer.getPosition() == targetPosition;
+    }
+
+    private int getPositionAfterClimb(Player player, int targetPosition, int diceValue) {
+        targetPosition = board.getLadderTop(targetPosition);
+        System.out.println(player.getName() + " rolled a " + diceValue + " and "
+                + " climbed ladder at " + player.getPosition() + " and moved from " +
+                player.getPosition() + " to " + targetPosition);
+        return targetPosition;
+    }
+
+    private int getPositionAfterSnakeBite(Player player, int targetPosition, int diceValue) {
+        targetPosition = board.getSnakeTail(targetPosition);
+        System.out.println(player.getName() + " rolled a " + diceValue + " and " +
+                " got bitten by snake at " + player.getPosition() + " and moved from " +
+                player.getPosition() + " to " + targetPosition);
+        return targetPosition;
     }
 
     private void addPlayersWithStartPosition(BufferedReader reader) throws IOException {
