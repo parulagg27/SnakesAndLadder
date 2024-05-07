@@ -3,6 +3,7 @@
 - Add logic to override dice value and give a value manually
 - Add behaviour specific tests = if snake bike, if ladder climb, if existing player at target position
 - Add logic to have different strategies invoked for player movement as per number of dice rolled and values.
+- Update input parser to take manual dice values if given [any input format is fine]
 
 ------
 
